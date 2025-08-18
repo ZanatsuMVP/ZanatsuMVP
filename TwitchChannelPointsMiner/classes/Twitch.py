@@ -823,8 +823,13 @@ class Twitch(object):
                     campaigns = self.__sync_campaigns(campaigns)
                 else:
                     self.logger.warning("Nenhuma campanha ativa encontrada para sincronizar.")
+
+            # Pode adicionar uma pausa para evitar sobrecarga do loop
+            time.sleep(5)
+
         except Exception as e:
             self.logger.error(f"Erro ao sincronizar campanhas: {e}", exc_info=True)
+
 
 
                 # Divide et impera :)
